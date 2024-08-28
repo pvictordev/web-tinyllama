@@ -1,3 +1,4 @@
+import { setupAi } from "./ai.ts";
 import "./style.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
@@ -5,3 +6,5 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 	hello world
   </div>
 `;
+
+setupAi();
