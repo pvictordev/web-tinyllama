@@ -37,7 +37,7 @@ export async function setupAi() {
 	function enableChat() {
 		if (app) {
 			app.innerHTML =
-				'<div> <button id="startButton">Start</button><input id="input" type="text"> <div><pre id="response"></pre></div></div>';
+				'<div class="container"> <div class="prompt-box"> <button id="startButton">➤</button><input id="input" type="text"> </div> <div><pre id="response"></pre></div></div>';
 
 			const startButton =
 				document.querySelector<HTMLButtonElement>("#startButton");
