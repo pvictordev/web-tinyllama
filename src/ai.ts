@@ -37,11 +37,19 @@ export async function setupAi() {
 	function enableChat() {
 		if (app) {
 			app.innerHTML =
-				'<div class="container"> <div class="prompt-box"> <button id="startButton">➤</button><input id="input" type="text"> </div> <div><pre id="response"></pre></div></div>';
+				'<div class="container"> <div class="prompt-box"> <button id="startButton">➤</button><input id="input" type="text" placeholder="Enter your message..."> </div> <div><pre id="response"></pre></div></div>';
 
 			const startButton =
 				document.querySelector<HTMLButtonElement>("#startButton");
+			const inputField =
+				document.querySelector<HTMLInputElement>("#input");
+
 			startButton?.addEventListener("click", submitRequest);
+			inputField?.addEventListener("keypress", (event) => {
+				if (event.key === "Enter") {
+					submitRequest();
+				}
+			});
 		}
 	}
 
@@ -53,9 +61,13 @@ export async function setupAi() {
 	}
 
 	function submitRequest() {
-		const input = document.querySelector<HTMLInputElement>("#input");
-		if (input) {
-			startEngine(input.value);
+		const inputField = document.querySelector<HTMLInputElement>("#input");
+		if (inputField) {
+			const inputValue = inputField.value;
+			if (inputValue) {
+				startEngine(inputValue);
+				inputField.value = "";
+			}
 		}
 	}
 
