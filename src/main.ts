@@ -3,7 +3,7 @@ import "./style.css";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
-	hello world
+	<progress value=.5> Downloading model </progress>
   </div>
 `;
 
